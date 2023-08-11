@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <br><br>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image_name" required>
+                <input type="submit" value="Upload" class="btn btn-outline-secondary">
+            </div>
+        </form>
+    </div>
+
+    {% if upload %}
+        <div class="container">
+            <br><br>
+            <table>
+                <tr>
+                    <td>
+                        <img class="rounded float-left img-fluid" src="/static/upload/{{ upload_image }}" alt=""  >
+                    </td>
+                    <td>
+                        <img class="rounded float-right img-fluid" src="/static/predict/{{ upload_image }}" alt=""  >
+                    </td>
+                </tr>
+
+            </table>
+            <br>
+            <table class="table table-bordered" style="border:solid black; background-color: #FFFFE0;">
+                <thead>
+                    <tr style="border:solid black;">
+                        <th colspan="2" class="text-center">Pest Detection Report</th>
+                    </tr>
+                </thead>
+                <tbody style="border:solid black;">
+                    <tr style="border:solid black;">
+                        <th>Number of Pests Detected  = <span style = "color:red;">{{no}}</span></th>
+                        
+                    </tr>
+                    <tr style="border:solid black;">
+                        <th>Class  = <span style = "color:red;"> {{text}}</span></th>
+                        
+                    </tr>
+                 
+                </tbody>
+            </table>
+
+        </div>
+    
+    
+    
+    {% endif %}
+
+{% endblock  %}
